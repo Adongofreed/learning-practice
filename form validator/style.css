@@ -1,0 +1,93 @@
+/* Page Layout */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f6f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Container Box */
+.container {
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form Controls */
+.form-control {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-control label {
+  display: block;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-control input:focus {
+  border-color: #2e86de;
+}
+
+/* Success and Error States */
+.form-control.success input {
+  border-color: #28a745;
+}
+
+.form-control.error input {
+  border-color: #dc3545;
+}
+
+/* Error Message */
+.form-control small {
+  color: #dc3545;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  visibility: hidden;
+  font-size: 13px;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #2e86de;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #1b4f72;
+}
