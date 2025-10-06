@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Image Slider</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider with Captions</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class = "slider-container">
-        <img id="slider" src = "img1.jpg" alt="Image Slider">
-        <div class="buttons">
-            <button id="prev">Prev</button>
-            <button id="next">Next</button>
+  <div class="slider-container">
+    <img id="slider" src="image1.jpg" alt="Slider Image">
+    <div id="caption">Fade</div>
+
+    <div class="buttons">
+      <button id="prev">⟨ Prev</button>
+      <button id="play">▶ Auto Play</button>
+      <button id="next">Next ⟩</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
