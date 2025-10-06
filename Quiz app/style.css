@@ -1,0 +1,106 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Center the quiz on the page */
+body {
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Quiz container */
+.quiz-container {
+  background: #fff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Quiz title */
+.quiz-container h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+/* Question */
+#question {
+  font-size: 20px;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Answer buttons */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  background: #f2f2f2;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #e0e0e0;
+}
+
+/* Correct and incorrect states */
+.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.incorrect {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Next button */
+#next-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  display: none;
+  transition: background 0.3s ease;
+}
+
+#next-btn:hover {
+  background-color: #357ABD;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+  .quiz-container {
+    padding: 20px;
+  }
+  .btn {
+    font-size: 14px;
+  }
+  #question {
+    font-size: 18px;
+  }
+}
