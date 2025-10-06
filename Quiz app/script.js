@@ -1,4 +1,4 @@
-// Step 1: Create quiz data
+// Quiz questions
 const questions = [
   {
     question: "What does HTML stand for?",
@@ -38,13 +38,17 @@ const questions = [
   }
 ];
 
+// Select elements
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 15;
+let timer;
 
+// Start quiz
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
@@ -52,6 +56,7 @@ function startQuiz() {
   showQuestion();
 }
 
+// Show question
 function showQuestion() {
   resetState();
 
@@ -66,21 +71,54 @@ function showQuestion() {
     answerButtons.appendChild(button);
 
     if (answer.correct) {
-      button.dataset.correct = answer.correct; // mark correct ones
+      button.dataset.correct = answer.correct;
     }
 
     button.addEventListener("click", selectAnswer);
   });
+
+  startTimer();
 }
 
+// Reset state before showing new question
 function resetState() {
   nextButton.style.display = "none";
+  clearInterval(timer);
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 
+// Handle timer
+function startTimer() {
+  timeLeft = 15;
+  document.getElementById("time").textContent = timeLeft;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("time").textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      timeUp();
+    }
+  }, 1000);
+}
+
+function timeUp() {
+  Array.from(answerButtons.children).forEach(button => {
+    button.disabled = true;
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct");
+    }
+  });
+  nextButton.style.display = "block";
+}
+
+// Handle answer selection
 function selectAnswer(e) {
+  clearInterval(timer);
+
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
 
@@ -91,7 +129,6 @@ function selectAnswer(e) {
     selectedBtn.classList.add("incorrect");
   }
 
-  // Disable all buttons after answering
   Array.from(answerButtons.children).forEach(button => {
     if (button.dataset.correct === "true") {
       button.classList.add("correct");
@@ -102,6 +139,7 @@ function selectAnswer(e) {
   nextButton.style.display = "block";
 }
 
+// Next question or show score
 function handleNextButton() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -119,6 +157,7 @@ nextButton.addEventListener("click", () => {
   }
 });
 
+// Show final score
 function showScore() {
   resetState();
   questionElement.textContent = `You scored ${score} out of ${questions.length}!`;
@@ -127,4 +166,3 @@ function showScore() {
 }
 
 startQuiz();
-

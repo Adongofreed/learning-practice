@@ -104,3 +104,10 @@ body {
     font-size: 18px;
   }
 }
+
+#timer {
+  font-size: 18px;
+  color: #4a90e2;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
